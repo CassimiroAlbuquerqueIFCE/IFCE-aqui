@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 int main() {
+    
     int decimal;
 
     printf("Entre com o valor decimal: ");
