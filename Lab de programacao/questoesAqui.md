@@ -2,6 +2,7 @@
 
 ## Questão 01
 
+```C
 #include <stdio.h>
 
 int main() {
@@ -16,4 +17,7 @@ int main() {
 
     return 0;
 }
+```
+
+##Questão 2
 
