@@ -1,12 +1,15 @@
-#include <stdio.h>  
+#include <stdio.h>
+
 
 int main(){
-    int x;
-    printf("Hellow World!2");
+    float altura; char sexo;
+    printf("Digite o valor da sua altura, em metros: ");
+    scanf("%f", &altura);
+    printf("Qual o seu sexo? Digite M para masculinho e F para feminino: ");
+    getchar();
+    scanf("%c",&sexo);
+    printf("Sua altura é: %.2f\nSeu sexo é: %c\n", altura, sexo);
+    //TERMINAR DE FAZER
 
-    printf("testenado o github");
-    return 0; // Esse retorn 0 na função principal quer dizer que, retornando 0, a funçao foi um sucesso
-
-    //testando
-
+    return 0;
 }
