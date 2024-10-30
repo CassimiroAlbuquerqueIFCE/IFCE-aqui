@@ -484,22 +484,88 @@ int main() {
 
 ## Questão 19
 ```C
+#include <stdio.h>
 
+int main() {
+    int numero;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+
+    // usando operador ternario
+    printf("%d %s\n", numero, (numero % 2 == 0) ? "é par" : "é ímpar");
+
+    return 0;
+}
 ```
 
 ## Questão 20
 ```C
+#include <stdio.h>
 
+int main() {
+    int num1, num2;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    // usando operador ternario
+    printf("%d %s múltiplo de %d\n", num1, (num1 % num2 == 0) ? "é" : "não é", num2);
+
+    return 0;
+}
 ```
 
 ## Questão 21
 ```C
+#include <stdio.h>
 
+int main() {
+    printf("A: %d\n", 'A');
+    printf("B: %d\n", 'B');
+    printf("C: %d\n", 'C');
+    printf("a: %d\n", 'a');
+    printf("b: %d\n", 'b');
+    printf("c: %d\n", 'c');
+    printf("0: %d\n", '0');
+    printf("1: %d\n", '1');
+    printf("2: %d\n", '2');
+    printf("$: %d\n", '$');
+    printf("*: %d\n", '*');
+    printf("+: %d\n", '+');
+    printf("/: %d\n", '/');
+    printf("Espaço em branco: %d\n", ' ');
+
+    return 0;
+}
 ```
 
 ## Questão 22
 ```C
 
+#include <stdio.h>
+
+int main() {
+    int numero, centena, dezena, unidade, numeroInvertido;
+
+    printf("Digite um número de três dígitos: ");
+    scanf("%d", &numero);
+
+    // Separando os dígitos
+    unidade = numero % 10;
+    dezena = (numero / 10) % 10;
+    centena = numero / 100;
+
+    // Reconstruindo o número invertido
+    numeroInvertido = unidade * 100 + dezena * 10 + centena;
+
+    printf("O número invertido é: %d\n", numeroInvertido);
+
+    return 0;
+}
 ```
 
 ## Questão 23
