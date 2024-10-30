@@ -570,20 +570,103 @@ int main() {
 
 ## Questão 23
 ```C
+#include <stdio.h>
 
+int main() {
+    int x, n, resultado;
+
+    printf("Digite o valor de x: ");
+    scanf("%d", &x);
+
+    printf("Digite o valor de n: ");
+    scanf("%d", &n);
+
+    resultado = x;
+
+    //fazer todos os bits deslocarem uma posição para a esquerda, que é
+    //equivalente a multiplicar por 2.
+    for (int i = 0; i < n; i++) {
+        resultado <<= 1;
+    }
+
+    printf("%d * 2^%d = %d\n", x, n, resultado);
+
+    return 0;
+}
 ```
 
 ## Questão 24
 ```C
 
+#include <stdio.h>
+
+int main() {
+    int segundos, horas, minutos, segundos_restantes;
+
+    printf("Digite o tempo em segundos: ");
+    scanf("%d", &segundos);
+
+    horas = segundos / 3600;
+    
+    segundos_restantes = segundos % 3600;
+    
+    minutos = segundos_restantes / 60;
+    
+    segundos_restantes = segundos_restantes % 60;
+
+    printf("%d segundos equivalem a %d horas, %d minutos e %d segundos.\n",
+           segundos, horas, minutos, segundos_restantes);
+
+    return 0;
+}
 ```
 
 ## Questão 25
 ```C
+#include <stdio.h>
+#include <math.h>
 
+int main() {
+    float x1, y1, x2, y2, distancia;
+
+    printf("Digite as coordenadas do primeiro ponto (x1 y1): ");
+    scanf("%f %f", &x1, &y1);
+
+    printf("Digite as coordenadas do segundo ponto (x2 y2): ");
+    scanf("%f %f", &x2, &y2);
+
+    distancia = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+
+    printf("A distancia entre os dois pontos é: %.2f\n", distancia);
+
+    return 0;
+}
 ```
 
 ## Questão 26
 ```C
+#include <stdio.h>
+#include <math.h>
 
+int main() {
+    float num1, num2, num3, mediaarit, mediageo;
+
+    printf("Digite o primeiro número: ");
+    scanf("%f", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%f", &num2);
+
+    printf("Digite o terceiro número: ");
+    scanf("%f", &num3);
+
+  
+    mediaarit = (num1 + num2 + num3) / 3;
+    mediageo = pow(num1 * num2 * num3, 1.0 / 3.0);
+    
+    printf("A média aritmética é: %.2f\n", mediaarit);
+    printf("A média geométrica é: %.2f\n", mediageo);
+
+    return 0;
+}
 ```
