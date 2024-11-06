@@ -267,11 +267,27 @@ int main() {
 ## Questão 10
 ```C
 
+#include <stdio.h>
+
+int main() {
+    int num;
+    
+    puts("Quadrados dos multiplos de 4 entre 15 e 90.");
+    
+    for (num=16;num<=90;num+=4){
+    printf("%d ",num*num);
+    }
+    
+ 
+    return 0;
+} 
 ```
 
 ## Questão 11
 ```C
-
+\\ QUESTAO
+\\ COM ENUNCIADO
+\\ ERRADO
 ```
 
 ## Questão 12
