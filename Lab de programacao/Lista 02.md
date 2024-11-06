@@ -287,37 +287,106 @@ int main() {
 ```C
 \\ QUESTAO
 \\ COM ENUNCIADO
-\\ ERRADO
+\\ ERRADO ???
 ```
 
 ## Questão 12
 ```C
+#include <stdio.h>
 
+int main() {
+    int num, i;
+
+    printf("Digite um número para ver sua tabuada: ");
+    scanf("%d", &num);
+
+    printf("Tabuada do %d:\n", num);
+
+    for (i = 1; i <= 10; ++i) {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 13
 ```C
-
+\\ FALTA
+\\ FAZER
+\\ ESSA
 ```
 
 ## Questão 14
 ```C
-
+\\ FALTA
+\\ FAZER
+\\ ESSA
 ```
 
 ## Questão 15
 ```C
+#include <stdio.h>
 
+int main() {
+    int base = 3, expo, resultado;
+
+    printf("Potências de 3 de 0 a 7:\n");
+
+    for (expo = 0; expo <= 7; expoente++) {
+        resultado = 1;
+        for (int i = 1; i <= expo; i++) {
+            resultado *= base;
+        }
+        printf("3 elevado a %d = %d\n", expo, resultado);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 16
 ```C
+#include <stdio.h>
 
+int main() {
+    int somadiv3 = 0, somadiv5 = 0;
+
+    for (int i = 0; i <= 200; i++) {
+        if (i <= 100) {
+            if (i % 3 == 0) {
+                somadiv3 += i;
+            }
+        } else {
+            if (i % 5 == 0) {
+                somadiv5 += i;
+            }
+        }
+    }
+
+    printf("Soma dos números divisíveis por 3 no intervalo [0, 100]: %d\n", somadiv3);
+    printf("Soma dos números divisíveis por 5 no intervalo ]100, 200]: %d\n", somadiv5);
+
+    return 0;
+}
 ```
 
 ## Questão 17
 ```C
+#include <stdio.h>
 
+int main() {
+    float cel, fah;
+
+    printf("Conversão de Celsius para Fahrenheit:\n\n");
+
+    for (cel = 10; cel <= 100; cel += 10) {
+        fah = (cel * 9/5) + 32;
+        printf("%.2f °C = %.2f °F\n", cel, fah);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 18
@@ -327,12 +396,54 @@ int main() {
 
 ## Questão 19
 ```C
+#include <stdio.h>
 
+int main() {
+    float media, inicio, fim, soma = 0, quantidade = 0;
+
+    printf("Digite o início do intervalo: ");
+    scanf("%f", &inicio);
+
+    printf("Digite o fim do intervalo: ");
+    scanf("%f", &fim);
+
+    if (fim <= inicio) {
+        printf("O fim do intervalo deve ser maior que o início.\n");
+        return 1; 
+    }
+
+    for (int i = inicio; i <= fim; i++) {
+        soma += i;
+        quantidade++;
+    }
+
+    media = soma / quantidade;
+
+    printf("A média aritmética dos números entre %.2f e %.2f é: %.2f\n", inicio, fim, media);
+
+    return 0;
+}
 ```
 
 ## Questão 20
 ```C
+#include <stdio.h>
 
+int main() {
+    int num, fat;
+
+    printf("Fatoriais dos números ímpares de 1 a 10:\n");
+
+    for (num = 1; num <= 10; num += 2) {
+        fat = 1;
+        for (int i = 2; i <= num; i++) {
+            fat *= i;
+        }
+        printf("O fatorial de %d é: %d\n", num, fat);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 21
@@ -342,7 +453,26 @@ int main() {
 
 ## Questão 22
 ```C
+#include <stdio.h>
 
+int main() {
+    int num, digit, contadorSete = 0;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        digit = num % 10;
+        if (digit == 7) {
+            contadorSete++;
+        }
+        num /= 10;
+    }
+
+    printf("O número possui %d dígitos 7.\n", contadorSete);
+
+    return 0;
+}
 ```
 
 ## Questão 23
