@@ -545,7 +545,7 @@ int main() {
 int main() {
     int numero, maior = INT_MIN, menor = INT_MAX;
 
-    printf("Digite números inteiros (digite um número negativo e par para sair, como -2):\n");
+    puts("Digite números inteiros (digite um número negativo e par para sair, como -2):\n");
 
     while (1) {
         scanf("%d", &numero);
