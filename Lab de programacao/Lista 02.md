@@ -202,7 +202,7 @@ int main() {
 #include <stdio.h>
 
 int main() {
-    float divi,num1, num2;
+    float num1, num2;
  
     puts("Divisão de dois numeros. Numero 1 pelo numero 2");
     puts("Insira o valor do numerador:");
@@ -224,11 +224,44 @@ int main() {
 ```
 ## Questão 08
 ```C
+#include <stdio.h>
+#include <math.h>
 
+int main() {
+    float mercadoria, prestacao, entrada;
+
+    puts("Digite o valor da mercadoria: R$ ");
+    scanf("%f", &mercadoria);
+
+    prestacao = floor(mercadoria / 3);
+
+    entrada = mercadoria - 2 * prestacao;
+
+    printf("Valor da entrada: R$ %.2f\n", entrada);
+    printf("Valor de cada prestação: R$ %.2f\n", prestacao);
+
+    return 0;
+}
 ```
 ## Questão 09
 ```C
+#include <stdio.h>
 
+int main() {
+    int termo1 = 1, termo2 = 1, proximoTermo, i;
+
+    puts("Os 20 primeiros termos da sequência de Fibonacci são:");
+
+    for (i = 1; i <= 20; ++i) {
+        printf("\n%d: %d ", i, termo1);
+
+        proximoTermo = termo1 + termo2;
+        termo1 = termo2;
+        termo2 = proximoTermo;
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 10
