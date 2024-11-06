@@ -482,22 +482,95 @@ int main() {
 
 ## Questão 24
 ```C
+#include <stdio.h>
+#include <math.h>
 
+int main() {
+    int a, b, c;
+
+    printf("Triplas pitagóricas até 500:\n");
+
+    for (a = 1; a <= 500; a++) {
+        for (b = 1; b <= 500; b++) {
+            c = sqrt(a*a + b*b);
+            if (c <= 500 && c == (int)c) {
+                printf("(%d, %d, %d)\n", a, b, c);
+            }
+        }
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 25
 ```C
+#include <stdio.h>
 
+int main() {
+    double pi = 0.0;
+    int i, n;
+
+    printf("Digite o número máximo de termos: ");
+    scanf("%d", &n);
+
+    printf("Termos\tAproximação de Pi\n");
+    for (i = 1; i <= n; i++) {
+        pi += 4.0 * ((i % 2 == 1) ? 1 : -1) / (2 * i - 1);
+        printf("%d\t%.10lf\n", i, pi);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 26
 ```C
+#include <stdio.h>
 
+int main() {
+    printf("Decimal\tOctal\tHexadecimal\n");
+    for (int i = 1; i <= 256; ++i) {
+        printf("%d\t%o\t%#x\n", i, i, i);
+    } // faltando o binario
+    return 0;
+}
 ```
 
 ## Questão 27
 ```C
+#include <stdio.h>
+#include <limits.h>
 
+int main() {
+    int numero, maior = INT_MIN, menor = INT_MAX;
+
+    printf("Digite números inteiros (digite um número negativo e par para sair, como -2):\n");
+
+    while (1) {
+        scanf("%d", &numero);
+
+        if (numero < 0 && numero % 2 == 0) {
+            break;
+        }
+
+        
+        if (numero > maior) {
+            maior = numero;
+        }
+        if (numero < menor) {
+            menor = numero;
+        }
+    }
+
+    if (maior == INT_MIN && menor == INT_MAX) {
+        printf("Nenhum número válido foi digitado.\n");
+    } else {
+        printf("O produto do maior (%d) pelo menor (%d) é: %d\n", maior, menor, maior * menor);
+    }
+
+    return 0;
+}
 ```
 
 ## Questão 28
