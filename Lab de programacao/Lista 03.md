@@ -413,13 +413,79 @@ int main() {
 ```
 ## Questão 09
 ```C
+#include <stdio.h>
+#define TAMANHO 3
 
+int main() {
+    int matriz[TAMANHO][TAMANHO];
+    int i, j;
+
+    printf("Digite os elementos da matriz 3x3:\n"); 1 
+    for (i = 0; i < TAMANHO; i++) {
+        for (j = 0; j < TAMANHO; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    printf("\nDiagonal principal:\n");
+    for (i = 0; i < TAMANHO; i++) {
+        printf("%d ", matriz[i][i]);
+    }
+
+    return 0;
+}
 
 ```
 
 ## Questão 10
 ```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define LINHAS 3
+#define COLUNAS 3
 
+int main() {
+    int matriz[LINHAS][COLUNAS];
+    int i, j, x, contador = 0;
+
+   
+    srand(time(NULL));
+
+ 
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            matriz[i][j] = rand() % 100; 
+        }
+    }
+
+    
+    printf("Matriz gerada:\n");
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+   
+    printf("Digite o valor a ser procurado: ");
+    scanf("%d", &x);
+
+    
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            if (matriz[i][j] == x) {
+                contador++;
+            }
+        }
+    }
+
+    printf("O valor %d aparece %d vezes na matriz.\n", x, contador);
+
+    return 0; 
+}
 
  
 ```
