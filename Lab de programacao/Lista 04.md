@@ -76,16 +76,23 @@ int main(){
 
     //fazendo o histograma
      int histograma[MAX+1]; // Vetor para armazenar o histograma
-
-    // Calcula o histograma
-    int calcula_histograma_lbp(unsigned char img_lbp[MAX][MAX], int linhas, int colunas, int histograma[]);
+    calcula_histograma_lbp(img_lbp, MAX - 2, MAX - 2, histograma);
     
-    // Imprime o histograma (opcional)
-    for (int i = 0; i < MAX+1; i++) {
+    // Calcula o histograma
+   // int calcula_histograma_lbp(unsigned char img_lbp[MAX][MAX], int linhas, int colunas, int histograma[]);
+    
+    // Imprime o histograma 
+    //for (int i =0; i<256;i++){
+     //   printf("histograma %d é %d \n",histograma[i]);}
+    //for (int i = 0; i < MAX+1; i++) {
+     //   printf("Valor LBP %d: %d ocorrências\n", i, histograma[i]);
+    //}
+    
+    // Imprime o histograma
+    for (int i = 0; i <= MAX; i++) {
         printf("Valor LBP %d: %d ocorrências\n", i, histograma[i]);
     }
-    
-    //printf("Total de pixels: %d\n", total_pixels);
+
     
    
     printf("Total de pixels: %d\n", histograma);
@@ -119,17 +126,17 @@ unsigned char calculando_lbp(unsigned char img[MAX][MAX],int linhas, int colunas
 
 int calcula_histograma_lbp(unsigned char img_lbp[MAX][MAX], int linhas, int colunas, int histograma[]) {
     // Inicializa o histograma com zeros
-    for (int i = 0; i < MAX + 1; i++) {
-        histograma[i] = 0;
+    for (int i = 0; i <= MAX + 1; i++) {
+      histograma[i] = 0;
     }
     // Percorre a imagem LBP e incrementa o histograma
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
             histograma[img_lbp[i][j]]++;
         }
-    for(int i; i<MAX+1;i++);{
-        printf("O valor %d do histograma é %d\n",i ,histograma[i]);
-    }
+   // for(int i; i<256;i++);{
+     //   printf("O valor %d do histograma é %d\n",i ,histograma[i]);
+   // }
  }
     /*// Calcular o total de pixels
     int total_pixels = 0;
@@ -139,7 +146,7 @@ int calcula_histograma_lbp(unsigned char img_lbp[MAX][MAX], int linhas, int colu
         }
     }
 */
-    return histograma;
+
 
 }
  
