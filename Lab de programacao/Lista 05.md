@@ -145,6 +145,39 @@ int main(){
 
 ```C
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 100
+
+int tamanhoStr(const char *text);
+
+int main(){
+    
+    char text[TAM];
+    
+    printf("Digite uma string: ");
+    fgets(text, sizeof(text), stdin);
+
+    int tam = tamanhoStr(text);
+    printf("O tamanho da sua string e: %d\n", tam);
+    puts("programa finalizado");
+    
+    
+    return 0;
+}
+
+int tamanhoStr(const char *text){
+    int tamanho = 0;
+    while(*text != '\0' && *text != '\n'){
+        tamanho++;
+        text++;
+    }
+    return tamanho;
+}
+
+
 
 
 
@@ -152,6 +185,41 @@ int main(){
 ## Questão 06
 
 ```C
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#define TAM 100
+
+void copyStr( char *text_final, const char *text);
+
+int main(){
+    
+    char text[TAM], text_final[TAM];
+    
+    puts("Digite um texto: ");
+    fgets(text, sizeof(text),stdin);
+
+    text[strcspn(text, "\n")] = '\0';
+    copyStr(text_final, text);
+
+    printf("A string copiada e: %s", text_final);
+    
+    
+    return 0;
+}
+
+void copyStr( char *text_final, const char *text){
+    while(*text != '\0'){
+        *text_final = *text;
+        text++;
+        text_final++;
+    }
+    *text_final = '\0';
+}
+
 
 
 
