@@ -227,31 +227,236 @@ void copyStr( char *text_final, const char *text){
 
 ## Questão 07
 ```C
+#include <stdio.h>
+#include <string.h>
 
+#define TAMANHO_MAX 100
+
+int main() {
+    char string1[TAMANHO_MAX], string2[TAMANHO_MAX];
+    char resultado[TAMANHO_MAX * 2]; 
+
+  
+    char *ptr1 = string1;
+    char *ptr2 = string2;
+    char *ptrResultado = resultado;
+
+
+    printf("Digite a primeira string: ");
+    fgets(string1, TAMANHO_MAX, stdin);
+    string1[strcspn(string1, "\n")] = '\0'; //para tirar o '\n' do final
+
+    printf("Digite a segunda string: ");
+    fgets(string2, TAMANHO_MAX, stdin);
+    string2[strcspn(string2, "\n")] = '\0'; //para tirar o '\n' do final
+
+
+    while (*ptr1 != '\0') {
+        *ptrResultado = *ptr1;
+        ptr1++;
+        ptrResultado++;
+    }
+
+
+    while (*ptr2 != '\0') {
+        *ptrResultado = *ptr2;
+        ptr2++;
+        ptrResultado++;
+    }
+
+//colocando o nulo ao final da string resultante
+    *ptrResultado = '\0';
+
+ 
+    printf("Resultado da concatenação: %s\n", resultado);
+
+    return 0;
+}
 
 
 ```
 ## Questão 08
 ```C
+#include <stdio.h>
+#include <ctype.h> // Para usar tolower()
 
+#define TAMANHO_MAX 100
+
+int main() {
+    char string[TAMANHO_MAX];
+    char caractere;
+    char *ptr = string;
+    int encontrado = 0;
+
+    printf("Digite uma string: ");
+    fgets(string, TAMANHO_MAX, stdin);
+    string[strcspn(string, "\n")] = '\0';
+
+    printf("Digite o caractere a ser buscado: ");
+    scanf("%c", &caractere);
+
+
+    caractere = tolower(caractere);
+
+    while (*ptr != '\0') {
+        if (tolower(*ptr) == caractere) { // Converte cada caractere da string para minúsculo
+            encontrado = 1;
+            break;
+        }
+        ptr++;
+    }
+
+    if (encontrado) {
+        printf("O caractere '%c' foi encontrado na string (ignorando maiúsculas/minúsculas).\n", caractere);
+    } else {
+        printf("O caractere '%c' não foi encontrado na string.\n", caractere);
+    }
+
+    return 0;
+}
 
 ```
 ## Questão 09
 ```C
+#include <stdio.h>
 
+#define TAMANHO 10
+
+void trocar(int *a, int *b);
+void bubbleSort(int *vetor, int tamanho);
+void imprimirVetor(int *vetor, int tamanho);
+
+int main() {
+    int vetor[TAMANHO] = {64, 34, 25, 12, 22, 11, 90, 88, 45, 1};
+
+    printf("Vetor original:\n");
+    imprimirVetor(vetor, TAMANHO);
+
+    bubbleSort(vetor, TAMANHO);
+
+    printf("Vetor ordenado:\n");
+    imprimirVetor(vetor, TAMANHO);
+
+    return 0;
+}
+
+
+void trocar(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+
+void bubbleSort(int *vetor, int tamanho) {
+    for (int i = 0; i < tamanho - 1; i++) {
+        for (int j = 0; j < tamanho - i - 1; j++) {
+            if (*(vetor + j) > *(vetor + j + 1)) {
+                trocar(vetor + j, vetor + j + 1);
+            }
+        }
+    }
+}
+
+void imprimirVetor(int *vetor, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", *(vetor + i));
+    }
+    printf("\n");
+}
 
 ```
 
 ## Questão 10
 ```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 15 
 
+int main() {
+    int X[N], F[N];
+    int i;
+
+    
+    srand(time(NULL));
+
+  
+    for (i = 0; i < N; i++) {
+        X[i] = rand() % N;
+    }
+
+   
+    for (i = 0; i < N; i++) {
+        F[i] = 0;
+    }
+
+   
+    for (i = 0; i < N; i++) {
+        F[X[i]]++;
+    }
+
+   
+    printf("Vetor X: ");
+    for (i = 0; i < N; i++) {
+        printf("%d ", X[i]);
+    }
+    printf("\n");
+
+    printf("Vetor F (contagem de ocorrências): ");
+    for (i = 0; i < N; i++) {
+        printf("%d ", F[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
 
  
 ```
 
 ## Questão 11
 ```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 7 
 
+int main() {
+    int X[N], Y[N], M[N][N];
+    int i, j;
+
+ 
+    srand(time(NULL));
+
+    for (i = 0; i < N; i++) {
+        X[i] = rand() % N;
+        Y[i] = rand() % N;
+    }
+
+
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            M[i][j] = 0;
+        }
+    }
+
+ 
+    for (i = 0; i < N; i++) {
+        M[X[i]][Y[i]]++;
+    }
+
+    // Imprime a matriz M
+    printf("Matriz M:\n");
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%d ", M[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
 
  
 ```
@@ -259,6 +464,63 @@ void copyStr( char *text_final, const char *text){
 ## Questão 12
 ```C
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 7 // Tamanho dos vetores e matriz
 
+int main() {
+    int X[N], Y[N], M[N][N];
+    int i, r;
+
+  
+    srand(time(NULL));
+
+   
+    for (i = 0; i < N; i++) {
+        X[i] = rand() % N;
+    }
+
+   
+    for (i = 0; i < N; i++) {
+        r = rand() % 10 + 1; // Gera um número aleatório entre 1 e 10
+        if (r <= 3) {
+            Y[i] = X[i];
+        } else if (r <= 5) {
+            Y[i] = X[i] - 1;
+        } else if (r <= 7) {
+            Y[i] = X[i] + 1;
+        } else if (r <= 9) {
+            Y[i] = X[i] - 2;
+        } else {
+            Y[i] = X[i] + 2;
+        }
+       
+        Y[i] = (Y[i] + N) % N;
+    }
+
+   
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            M[i][j] = 0;
+        }
+    }
+
+   
+    for (i = 0; i < N; i++) {
+        M[X[i]][Y[i]]++;
+    }
+
+  
+    printf("Matriz M:\n");
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%d ", M[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
  
 ```
