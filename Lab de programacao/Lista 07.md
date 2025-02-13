@@ -1,4 +1,4 @@
-## Lista 06 do Laboratório de Programação
+## Lista 07 do Laboratório de Programação
 
 ## Questão 01
 
